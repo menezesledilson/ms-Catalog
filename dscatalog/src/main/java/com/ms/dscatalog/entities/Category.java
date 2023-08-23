@@ -1,7 +1,4 @@
-/**
- * 
- */
-package com.ms.dscatalog.entities;
+package com.devsuperior.dscatalog.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
@@ -15,9 +12,6 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
-/**
- * 
- */
 @Entity
 @Table(name = "tb_category")
 public class Category implements Serializable {
@@ -27,18 +21,17 @@ public class Category implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-
+	
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant createdAt;
+
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant updatedAt;
 
 	public Category() {
-
 	}
 
 	public Category(Long id, String name) {
-
 		this.id = id;
 		this.name = name;
 	}
@@ -59,29 +52,19 @@ public class Category implements Serializable {
 		this.name = name;
 	}
 	
-	
-
 	public Instant getCreatedAt() {
 		return createdAt;
 	}
-
-//	public void setCreatedAt(Instant createdAt) {
-//		this.createdAt = createdAt;
-//	}
 
 	public Instant getUpdatedAt() {
 		return updatedAt;
 	}
 
-//	public void setUpdatedAt(Instant updatedAt) {
-//		this.updatedAt = updatedAt;
-//	}
-	
 	@PrePersist
 	public void prePersist() {
 		createdAt = Instant.now();
 	}
-
+	
 	@PreUpdate
 	public void preUpdate() {
 		updatedAt = Instant.now();
@@ -111,5 +94,4 @@ public class Category implements Serializable {
 			return false;
 		return true;
 	}
-
 }

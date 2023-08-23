@@ -1,4 +1,4 @@
-package com.ms.dscatalog.dto;
+package com.devsuperior.dscatalog.dto;
 
 import java.io.Serializable;
 import java.time.Instant;
@@ -6,13 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import com.ms.dscatalog.entities.Category;
-import com.ms.dscatalog.entities.Product;
+import com.devsuperior.dscatalog.entities.Category;
+import com.devsuperior.dscatalog.entities.Product;
 
 public class ProductDTO implements Serializable {
-	
 	private static final long serialVersionUID = 1L;
-	
 
 	private Long id;
 	private String name;
@@ -24,11 +22,9 @@ public class ProductDTO implements Serializable {
 	private List<CategoryDTO> categories = new ArrayList<>();
 	
 	public ProductDTO() {
-		
 	}
 
 	public ProductDTO(Long id, String name, String description, Double price, String imgUrl, Instant date) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
@@ -38,7 +34,6 @@ public class ProductDTO implements Serializable {
 	}
 	
 	public ProductDTO(Product entity) {
-		super();
 		this.id = entity.getId();
 		this.name = entity.getName();
 		this.description = entity.getDescription();
@@ -107,6 +102,4 @@ public class ProductDTO implements Serializable {
 	public void setCategories(List<CategoryDTO> categories) {
 		this.categories = categories;
 	}
-		
-	
 }
